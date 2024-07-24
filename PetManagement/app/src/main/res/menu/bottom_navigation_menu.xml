@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/FragmentHome"
+        android:icon="@drawable/ic_insert_emoticon_black_24dp"
+        android:title="ホーム"/>
+
+    <item
+        android:id="@+id/FragmentWeight"
+        android:icon="@drawable/ic_pets_black_24dp"
+        android:title="体重"/>
+
+    <item
+        android:id="@+id/FragmentDiary"
+        android:icon="@drawable/ic_wb_sunny_black_24dp"
+        android:title="日記"/>
+
+</menu>

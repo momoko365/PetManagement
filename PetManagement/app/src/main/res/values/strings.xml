@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PetManagement</string>
+
+    <string name="signup">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+</resources>

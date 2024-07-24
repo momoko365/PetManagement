@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1070899812357",
+    "project_id": "pet-management-4facb",
+    "storage_bucket": "pet-management-4facb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070899812357:android:ea6a6c6153604d0da1e46c",
+        "android_client_info": {
+          "package_name": "com.example.petmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd8apIdEbo9N5q7eeoLwPmPV87gsAWi54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
