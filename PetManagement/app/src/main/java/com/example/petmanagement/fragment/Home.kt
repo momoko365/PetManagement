@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 //import androidx.compose.ui.tooling.data.EmptyGroup.data
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.example.petmanagement.DB.ImageDao
 import com.example.petmanagement.DB.ImageEntity
+import com.example.petmanagement.DB.Pet
 import com.example.petmanagement.DB.PetDao
 import com.example.petmanagement.DB.PetDatabase
 import com.example.petmanagement.R
@@ -31,8 +33,6 @@ import java.util.UUID
 class Home: Fragment() {
     private lateinit var db: PetDatabase
     private lateinit var dao: PetDao
-
-
     private lateinit var imagedao: ImageDao
 
     override fun onCreateView(
@@ -53,10 +53,52 @@ class Home: Fragment() {
                 dao = db.petDAO()
                 imagedao = db.imageDAO()
             }
-
-            
 displayLatestImage()
+            displayLatestImage()
+            val pets = dao.getAllPets()
+            if (pets.isNotEmpty()) {
+                val name: TextView = view.findViewById(R.id.name)
+                //計算必要
+//                val seigodate: TextView = view.findViewById(R.id.seigodate)
+                var typedobutu: TextView = view.findViewById(R.id.type)
+                val gender: TextView =view.findViewById(R.id.gender)
+                val breed: TextView = view.findViewById(R.id.breed)
+                val birhday: TextView = view.findViewById(R.id.birthday)
+                val comehomeday: TextView = view.findViewById(R.id.comehomeday)
+                val pet = pets[0] // リストの最初のペットを取得
+                withContext(Dispatchers.Main) {
+                    // UIスレッドでテキストビューに値を設定
+                    name.text = pet.name
+                    // seigodate.text = // ここに計算した成犬の日付を設定
+                    typedobutu.text = pet.type
+                    gender.text = pet.gender
+                    breed.text = pet.breed
+                    birhday.text = pet.birthdate
+                    comehomeday.text = pet.adoptionDate
+                }
+            }
         }
+
+
+
+//        lifecycleScope.launch {
+//            val pets = withContext(Dispatchers.IO) {
+//                dao.getAllPets()
+//            }
+//            if (pets.isNotEmpty()) {
+//                val pet = pets[0] // リストの最初のペットを取得
+//                // UIスレッドでテキストビューに値を設定
+//                withContext(Dispatchers.Main) {
+//                    name.text = pet.name
+////                    seigodate.text = // ここに計算した成犬の日付を設定
+//                        typedobutu.text = pet.type
+//                    gender.text = pet.gender
+//                    breed.text = pet.breed
+//                    birhday.text = pet.birthdate
+//                    comehomeday.text = pet.adoptionDate
+//                }
+//            }
+//        }
         picbtn.setOnClickListener {
 //ボタンが押されたらギャラリーを開く
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
