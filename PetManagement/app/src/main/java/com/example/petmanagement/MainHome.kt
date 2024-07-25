@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.petmanagement.databinding.FragmentHomeBinding
 import com.example.petmanagement.databinding.HomeBinding
+import com.example.petmanagement.fragment.HomeRegi
 
 
 class MainHome: AppCompatActivity() {
@@ -26,6 +27,11 @@ class MainHome: AppCompatActivity() {
 
         // BottomNavigationViewのIDを修正
         binding.bottomNavigation.setupWithNavController(navController)
+
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.FragmentHomeRegi, HomeRegi())
+//            .commit()
+
 
 
 

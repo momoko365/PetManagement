@@ -6,6 +6,11 @@
         android:title="ホーム"/>
 
     <item
+        android:id="@+id/FragmentHomeRegi"
+        android:icon="@drawable/ic_airplanemode_active_black_24dp"
+        android:title="登録"/>
+
+    <item
         android:id="@+id/FragmentWeight"
         android:icon="@drawable/ic_pets_black_24dp"
         android:title="体重"/>

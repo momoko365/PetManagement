@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
@@ -21,6 +22,8 @@ class Home: Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         var picbtn: ImageButton = view.findViewById(R.id.torokubtn)
+        val pettorokubtn: Button = view.findViewById(R.id.pet_toroku)
+
         picbtn.setOnClickListener {
 //ボタンが押されたらギャラリーを開く
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {

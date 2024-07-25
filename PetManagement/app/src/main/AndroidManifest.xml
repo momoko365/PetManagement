@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainHome"  android:theme="@style/Theme.AppCompat.Light"></activity>
-
+<!--<activity android:name=".fragment.HomeRegi" android:theme="@style/Theme.AppCompat.Light"></activity>-->
     </application>
 
 </manifest>

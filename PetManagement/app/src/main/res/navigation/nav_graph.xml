@@ -22,5 +22,9 @@
         android:id="@+id/FragmentDiary"
         android:name="com.example.petmanagement.fragment.Diary"
         tools:layout="@layout/fragment_diary" />
+    <fragment
+        android:id="@+id/FragmentHomeRegi"
+        android:name="com.example.petmanagement.fragment.HomeRegi"
+        tools:layout="@layout/fragment_home_regi" />
 
 </navigation>
