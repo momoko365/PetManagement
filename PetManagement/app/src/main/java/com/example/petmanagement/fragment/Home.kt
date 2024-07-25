@@ -53,6 +53,8 @@ class Home: Fragment() {
                 dao = db.petDAO()
                 imagedao = db.imageDAO()
             }
+
+            
 displayLatestImage()
         }
         picbtn.setOnClickListener {
