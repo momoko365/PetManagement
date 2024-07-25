@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
     app:startDestination="@id/FragmentHome">
 
@@ -11,15 +12,15 @@
 <!--        tools:layout="@layout/fragment_home" -->
 
 
-<!--    <fragment-->
-<!--        android:id="@+id/FragmentWeight"-->
-<!--        android:name="com.example.petmanagement.fragment.Weight-->
-<!--        tools:layout="@layout/fragment_weight" />-->
+    <fragment
+        android:id="@+id/FragmentWeight"
+        android:name="com.example.petmanagement.fragment.Weight"
+        tools:layout="@layout/fragment_weight" />
 
 
-<!--        <fragment-->
-<!--            android:id="@+id/FragmentDiary"-->
-<!--            android:name="com.example.petmanagement.fragment.Diary-->
-<!--            tools:layout="@layout/fragment_diary" />-->
+    <fragment
+        android:id="@+id/FragmentDiary"
+        android:name="com.example.petmanagement.fragment.Diary"
+        tools:layout="@layout/fragment_diary" />
 
 </navigation>
