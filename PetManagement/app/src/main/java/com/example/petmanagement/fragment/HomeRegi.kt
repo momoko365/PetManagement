@@ -46,7 +46,6 @@ class HomeRegi : Fragment() {
         }
 
 
-        val backbtn : Button = view.findViewById(R.id.backbtn)
         val torokubtn : Button = view.findViewById(R.id.button)
 
         torokubtn.setOnClickListener {

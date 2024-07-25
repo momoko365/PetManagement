@@ -25,6 +25,16 @@ interface PetDao {
 }
 
 @Dao
+interface ImageDao {
+    @Insert
+    suspend fun insertImage(imageEntity: ImageEntity)
+
+    @Query("SELECT * FROM ImageEntity")
+    suspend fun getAllImages(): List<ImageEntity>
+    @Query("SELECT imageUrl FROM ImageEntity ORDER BY id DESC LIMIT 1")
+    suspend fun getLatestImageUrl(): String?
+}
+@Dao
 interface WeightRecordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeightRecord(weightRecord: WeightRecord)

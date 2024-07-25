@@ -21,6 +21,11 @@ data class Pet(
     //写真のURL
     val iconPhotoUrl: String
     )
+@Entity
+data class ImageEntity(
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    val imageUrl: String
+)
 
 @Entity
 data class WeightRecord(
