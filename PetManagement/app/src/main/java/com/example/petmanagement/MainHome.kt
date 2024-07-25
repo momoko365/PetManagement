@@ -2,6 +2,7 @@ package com.example.petmanagement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -25,5 +26,8 @@ class MainHome: AppCompatActivity() {
 
         // BottomNavigationViewのIDを修正
         binding.bottomNavigation.setupWithNavController(navController)
+
+
+
     }
 }
