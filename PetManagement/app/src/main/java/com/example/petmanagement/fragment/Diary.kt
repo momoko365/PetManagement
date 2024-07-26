@@ -24,6 +24,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 class Diary : Fragment() {
+    // UIコンポーネントの宣言
     private lateinit var linearLayout: LinearLayout
     private lateinit var editTextMessage: EditText
     private lateinit var buttonSend: Button
@@ -34,16 +35,18 @@ class Diary : Fragment() {
     private val storage = FirebaseStorage.getInstance().reference.child("images")
     private var selectedImageUri: Uri? = null
 
+    // Fragmentのビューを作成するメソッド
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_diary, container, false)
+        // UIコンポーネントの初期化
         linearLayout = view.findViewById(R.id.linearLayout)
         editTextMessage = view.findViewById(R.id.editTextMessage)
         buttonSend = view.findViewById(R.id.buttonSend)
         buttonSelectImage = view.findViewById(R.id.buttonSelectImage)
         imageView = view.findViewById(R.id.imageView)
         auth = FirebaseAuth.getInstance()
-
+// 送信ボタンのクリックリスナー
         buttonSend.setOnClickListener {
             val message = editTextMessage.text.toString()
             val user = auth.currentUser
@@ -59,7 +62,7 @@ class Diary : Fragment() {
                 selectedImageUri = null
             }
         }
-
+// 画像選択ボタンのクリックリスナー
         buttonSelectImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
@@ -94,7 +97,7 @@ class Diary : Fragment() {
 
         return view
     }
-
+    // 画像選択の結果を受け取るメソッド
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
@@ -103,7 +106,7 @@ class Diary : Fragment() {
             imageView.visibility = View.VISIBLE
         }
     }
-
+    // メッセージをレイアウトに追加するメソッド
     private fun addMessageToLayout(email: String, message: String, imageUrl: String?) {
         val textView = TextView(context).apply {
             text = "$email: $message"
@@ -127,7 +130,7 @@ class Diary : Fragment() {
             linearLayout.addView(imageView)
         }
     }
-
+    // メッセージをFirebase Realtime Databaseに保存するメソッド
     private fun saveMessageToDatabase(email: String, message: String, imageUrl: String?) {
         val messageData = mapOf(
             "email" to email,
@@ -136,7 +139,7 @@ class Diary : Fragment() {
         )
         database.push().setValue(messageData)
     }
-
+    // 画像をFirebase Storageに保存するメソッド
     private fun saveImageToStorage(email: String, message: String, imageUri: Uri) {
         val imageRef: StorageReference = storage.child(imageUri.lastPathSegment!!)
         imageRef.putFile(imageUri).addOnSuccessListener {
