@@ -89,6 +89,7 @@ dependencies {
 
 // https://firebase.google.com/docs/android/setup#available-libraries
 implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation ("com.google.firebase:firebase-database:21.0.0")
     implementation("com.google.firebase:firebase-core:21.1.1")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
     implementation("com.google.firebase:firebase-storage:21.0.0")
