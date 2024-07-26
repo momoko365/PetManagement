@@ -51,9 +51,9 @@ data class HealthRecord(
 @Entity
 data class Diary(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val petId: Int,
-    val date: String,
-    val time: String,
+    val petId: Int, // このフィールドを追加
     val content: String,
     val photoUrl: String?
 )
+
+data class ChatMessage(val name: String, val message: String, val imageUrl: String)

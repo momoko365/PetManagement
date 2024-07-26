@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="93dp"
-        android:layout_height="95dp"
+        android:layout_width="132dp"
+        android:layout_height="136dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,46 +18,12 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="名前"
-        android:text="名前"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="性別"
-        android:text="性別"
-        app:layout_constraintBottom_toBottomOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toTopOf="@+id/name" />
-
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="犬種"
-        android:text="動物名"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <TextView
         android:id="@+id/birthday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
-        android:text="誕生日"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -65,7 +31,6 @@
         android:id="@+id/comehomeday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="家族になった日"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/birthday"
         app:layout_constraintTop_toTopOf="@+id/birthday" />
@@ -83,12 +48,108 @@
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="動物名：  "
+        app:layout_constraintEnd_toStartOf="@+id/type"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="種類：  "
+        app:layout_constraintEnd_toStartOf="@+id/breed"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="性別：  "
+        app:layout_constraintBottom_toBottomOf="@+id/gender"
+        app:layout_constraintEnd_toStartOf="@+id/gender"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@+id/gender"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
         android:id="@+id/breed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="種類"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="@+id/type"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/type"
         app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="お名前：  "
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="お誕生日"
+        app:layout_constraintBottom_toTopOf="@+id/birthday"
+        app:layout_constraintEnd_toEndOf="@+id/birthday"
+        app:layout_constraintStart_toStartOf="@+id/birthday" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="家族になった日"
+        app:layout_constraintBottom_toTopOf="@+id/comehomeday"
+        app:layout_constraintEnd_toEndOf="@+id/comehomeday"
+        app:layout_constraintStart_toStartOf="@+id/comehomeday" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
