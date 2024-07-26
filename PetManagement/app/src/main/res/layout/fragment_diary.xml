@@ -23,18 +23,19 @@
                 android:id="@+id/editTextMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your message" />
+                android:hint="メッセージを入力してください" />
 
             <Button
                 android:id="@+id/buttonSend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send" />
+                android:text="送信" />
+
             <Button
                 android:id="@+id/buttonSelectImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Image" />
+                android:text="写真送信" />
 
             <ImageView
                 android:id="@+id/imageView"
