@@ -31,6 +31,7 @@ class Diary : Fragment() {
     private lateinit var buttonSelectImage: Button
     private lateinit var imageView: ImageView
     private lateinit var auth: FirebaseAuth
+    //たぶんここでテーブル作ってるぽい
     private val database = FirebaseDatabase.getInstance().reference.child("messages")
     private val storage = FirebaseStorage.getInstance().reference.child("images")
     private var selectedImageUri: Uri? = null
