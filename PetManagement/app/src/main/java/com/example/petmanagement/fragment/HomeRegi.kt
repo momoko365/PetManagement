@@ -16,6 +16,7 @@ import com.example.petmanagement.DB.PetDao
 import com.example.petmanagement.DB.PetDatabase
 import com.example.petmanagement.R
 import com.example.petmanagement.databinding.FragmentHomeRegiBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
@@ -25,14 +26,14 @@ import kotlinx.coroutines.withContext
 class HomeRegi : Fragment() {
 
     private lateinit var name: EditText
-    private lateinit var  gender: EditText
+    private lateinit var gender: EditText
     private lateinit var animaltype: EditText
     private lateinit var bleed: EditText
     private lateinit var birth: EditText
     private lateinit var house: EditText
     private lateinit var torokubtn: Button
-    private lateinit var database: DatabaseReference
-
+    private lateinit var petDatabase: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,15 +43,22 @@ class HomeRegi : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_home_regi, container, false)
 
-        name=view.findViewById(R.id.nameT)
-             gender=view.findViewById(R.id.genderT)
-            animaltype = view.findViewById(R.id.animalT)
-            bleed = view.findViewById(R.id.bleedT)
-            birth = view.findViewById(R.id.birthT)
-             house = view.findViewById(R.id.houseT)
-        torokubtn=view.findViewById(R.id.button)
-        database = FirebaseDatabase.getInstance().reference.child("pets")
-        torokubtn.setOnClickListener{
+        name = view.findViewById(R.id.nameT)
+        gender = view.findViewById(R.id.genderT)
+        animaltype = view.findViewById(R.id.animalT)
+        bleed = view.findViewById(R.id.bleedT)
+        birth = view.findViewById(R.id.birthT)
+        house = view.findViewById(R.id.houseT)
+        torokubtn = view.findViewById(R.id.button)
+
+        auth = FirebaseAuth.getInstance()
+        val userId = auth.currentUser?.uid
+
+        userId?.let {
+            petDatabase = FirebaseDatabase.getInstance().reference.child("users").child(it).child("pets")
+        }
+
+        torokubtn.setOnClickListener {
             val petName = name.text.toString()
             val petGender = gender.text.toString()
             val petType = animaltype.text.toString()
@@ -61,15 +69,7 @@ class HomeRegi : Fragment() {
             if (petName.isBlank() || petGender.isBlank() || petType.isBlank() || petBleed.isBlank() || petBirth.isBlank() || petHouse.isBlank()) {
                 Toast.makeText(requireContext(), "全ての項目を入力してください", Toast.LENGTH_SHORT).show()
             } else {
-                val petData = mapOf(
-                    "name" to petName,
-                    "gender" to petGender,
-                    "type" to petType,
-                    "bleed" to petBleed,
-                    "birth" to petBirth,
-                    "house" to petHouse
-                )
-                database.push().setValue(petData)
+                savePetToDatabase(petName, petGender, petType, petBleed, petBirth, petHouse)
                 Toast.makeText(requireContext(), "登録が完了しました", Toast.LENGTH_SHORT).show()
                 clearFields()
             }
@@ -77,6 +77,19 @@ class HomeRegi : Fragment() {
 
         return view
     }
+
+    private fun savePetToDatabase(name: String, gender: String, type: String, bleed: String, birth: String, house: String) {
+        val petData = mapOf(
+            "name" to name,
+            "gender" to gender,
+            "type" to type,
+            "bleed" to bleed,
+            "birth" to birth,
+            "house" to house
+        )
+        petDatabase.push().setValue(petData)
+    }
+
     private fun clearFields() {
         name.text.clear()
         gender.text.clear()

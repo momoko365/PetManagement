@@ -93,6 +93,8 @@ implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-core:21.1.1")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
     implementation("com.google.firebase:firebase-storage:21.0.0")
+    implementation("com.google.firebase:firebase-bom:33.1.2")
+
     implementation("com.github.bumptech.glide:glide:4.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("androidx.activity:activity-ktx:1.7.0")
